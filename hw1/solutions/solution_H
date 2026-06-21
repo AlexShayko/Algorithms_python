@@ -1,12 +1,12 @@
-sum = 0
-s = [0]*(int(input()) + 1)
-for i in range(2, len(s)):
-    if s[i] == 0:
-        sum += i
-        for j in range(i + i, len(s), i):
-            if s[j] == 0:
-                s[j] = 1
-                sum += i
-print(sum)
+x1, y1, x2, y2 = map(int, input().split())
 
+dx = x2 - x1
+dy = y2 - y1
 
+def gcd(a, b):
+    a, b = abs(a), abs(b)
+    while b:
+        a, b = b, a % b
+    return a
+
+print(gcd(dx, dy) + 1)
